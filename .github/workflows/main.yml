@@ -28,8 +28,22 @@ jobs:
         shell: bash
         run: echo "BRANCH_NAME=$GITHUB_HEAD_REF" >> $GITHUB_ENV
 
-      - name: Declare env variables on push and pull_request
+      - name: A
         shell: bash
         if: github.event_name == 'push'
-        run: |
-          echo "QWE=PPPPUSH" >> $GITHUB_ENV
+        run: echo "QWE_A=YES" >> $GITHUB_ENV
+
+      - name: B
+        shell: bash
+        if: ${{ github.event_name == 'push' && env.BRANCH_NAME = 'master' }}
+        run: echo "QWE_B=YES" >> $GITHUB_ENV
+
+      - name: C
+        shell: bash
+        if: ${{ github.event_name == 'push' && $BRANCH_NAME = 'master' }}
+        run: echo "QWE_C=YES" >> $GITHUB_ENV
+
+      - name: LAST
+        shell: bash
+        run: echo 'END'
+
