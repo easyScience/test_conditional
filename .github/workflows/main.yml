@@ -41,7 +41,12 @@ jobs:
       - name: C
         shell: bash
         if: github.event_name == 'push' && env.BRANCH_NAME != 'master'
-        run: echo "QWE_C=YES" >> $GITHUB_ENV
+        run: echo "QWE_C=NONMASTER" >> $GITHUB_ENV
+
+      - name: D
+        shell: bash
+        if: github.event_name == 'push' && env.BRANCH_NAME == 'master'
+        run: echo "QWE_D=MASTER" >> $GITHUB_ENV
 
       - name: LAST
         shell: bash
