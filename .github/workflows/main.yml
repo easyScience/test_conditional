@@ -35,12 +35,12 @@ jobs:
 
       - name: B
         shell: bash
-        if: ${{ github.event_name == 'push' && env.BRANCH_NAME == 'master' }}
+        if: ${{ github.event_name == 'push' && env.BRANCH_NAME != 'master' }}
         run: echo "QWE_B=YES" >> $GITHUB_ENV
 
       - name: C
         shell: bash
-        if: ${{ github.event_name == 'push' && $BRANCH_NAME == 'master' }}
+        if: github.event_name == 'push' && env.BRANCH_NAME != 'master'
         run: echo "QWE_C=YES" >> $GITHUB_ENV
 
       - name: LAST
