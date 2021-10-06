@@ -1,0 +1,17 @@
+version: 2
+registries:
+  easypip:
+    type: python-index
+    url: https://easyscience.github.io/pypi
+
+updates:
+- package-ecosystem: pip
+  directory: /
+  registries:
+    - easypip
+  schedule:
+    interval: hourly
+  open-pull-requests-limit: 10
+  target-branch: master
+  labels:
+  - dependencies
