@@ -10,7 +10,7 @@ updates:
   registries:
     - easypip
   schedule:
-    interval: hourly
+    interval: daily
   open-pull-requests-limit: 10
   target-branch: master
   labels:
